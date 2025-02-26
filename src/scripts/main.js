@@ -994,7 +994,7 @@ const VoicePlayer = {
         playAllBtn.querySelector('.material-icons').textContent = 'stop';
         playAllBtn.querySelector('span:not(.material-icons)').textContent = strings.stop;
 
-        const voiceItems = document.querySelectorAll('.voice-item');
+        const voiceItems = document.querySelectorAll('.voice-item:not([style*="display: none"])');
         for (const item of voiceItems) {
             if (!this.isPlayingAll) break;
 
