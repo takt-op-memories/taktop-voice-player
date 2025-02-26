@@ -769,6 +769,18 @@ const VoicePlayer = {
     },
 
     async downloadVoice(fileName, title) {
+        const password = sessionStorage.getItem(STORAGE_KEY.PASSWORD);
+        if (!password) {
+            Auth.clearAndReload();
+            return;
+        }
+
+        const isValid = await Auth.verify(password);
+        if (!isValid) {
+            Auth.clearAndReload();
+            return;
+        }
+
         const url = `${CONFIG.DB_BASE}${this.characterId}/src/wav/${fileName}.wav`;
         try {
             const response = await fetch(url);
@@ -786,7 +798,19 @@ const VoicePlayer = {
         }
     },
 
-    togglePlay(fileName, buttonElement) {
+    async togglePlay(fileName, buttonElement) {
+        const password = sessionStorage.getItem(STORAGE_KEY.PASSWORD);
+        if (!password) {
+            Auth.clearAndReload();
+            return;
+        }
+
+        const isValid = await Auth.verify(password);
+        if (!isValid) {
+            Auth.clearAndReload();
+            return;
+        }
+
         if (this.isPlayingAll) {
             this.stopPlayAll();
             return;
@@ -820,6 +844,18 @@ const VoicePlayer = {
     },
 
     async togglePlayAll() {
+        const password = sessionStorage.getItem(STORAGE_KEY.PASSWORD);
+        if (!password) {
+            Auth.clearAndReload();
+            return;
+        }
+
+        const isValid = await Auth.verify(password);
+        if (!isValid) {
+            Auth.clearAndReload();
+            return;
+        }
+
         const playAllBtn = document.querySelector('.play-all-btn');
         const strings = Lang.data[Lang.current].controls;
 
@@ -849,7 +885,7 @@ const VoicePlayer = {
             this.setPlayingItem(playBtn);
             this.currentPlayingItem = playBtn;
 
-            scrollIntoViewIfNeeded(this.currentPlayingItem);
+            await scrollIntoViewIfNeeded(this.currentPlayingItem);
 
             try {
                 await new Promise((resolve, reject) => {
@@ -886,6 +922,17 @@ const VoicePlayer = {
     },
 
     async downloadAll() {
+        const password = sessionStorage.getItem(STORAGE_KEY.PASSWORD);
+        if (!password) {
+            Auth.clearAndReload();
+            return;
+        }
+
+        const isValid = await Auth.verify(password);
+        if (!isValid) {
+            Auth.clearAndReload();
+            return;
+        }
         this.createProgressOverlay();
         const voiceItems = document.querySelectorAll('.voice-item:not([style*="display: none"])');
         const totalItems = voiceItems.length;
@@ -981,7 +1028,19 @@ scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-function scrollIntoViewIfNeeded(element) {
+async function scrollIntoViewIfNeeded(element) {
+    const password = sessionStorage.getItem(STORAGE_KEY.PASSWORD);
+    if (!password) {
+        Auth.clearAndReload();
+        return;
+    }
+
+    const isValid = await Auth.verify(password);
+    if (!isValid) {
+        Auth.clearAndReload();
+        return;
+    }
+
     element.classList.add('scrolled-into-view');
     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
