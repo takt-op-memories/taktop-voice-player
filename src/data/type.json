@@ -120,6 +120,12 @@
         "category": "musicart"
     },
     {
+        "id": 20,
+        "name": "Mestudy",
+        "nameEn": "Mestudy",
+        "category": "musicart"
+    },
+    {
         "id": 1000,
         "name": "キーワード",
         "nameEn": "keyword",
