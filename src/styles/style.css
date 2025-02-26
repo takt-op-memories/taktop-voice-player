@@ -638,6 +638,12 @@ select:disabled {
         gap: 0.25rem;
         padding: 0.25rem;
     }
+
+    #display-selectors {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        margin: 0.5rem 1rem;
+    }
 }
 
 .selector-label {
@@ -734,4 +740,27 @@ select:disabled {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+}
+
+#display-selectors {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    width: auto;
+    margin: 0.5rem auto;
+    max-width: 800px;
+    transition: all 0.2s ease;
+}
+
+#display-selectors:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#display-selectors:active {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(1px);
 }
