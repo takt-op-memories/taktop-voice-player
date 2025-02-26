@@ -888,7 +888,7 @@ const VoicePlayer = {
             this.setPlayingItem(playBtn);
             this.currentPlayingItem = playBtn;
 
-            await scrollIntoViewIfNeeded(this.currentPlayingItem);
+            scrollIntoViewIfNeeded(this.currentPlayingItem);
 
             try {
                 await new Promise((resolve, reject) => {
@@ -1031,19 +1031,7 @@ scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-async function scrollIntoViewIfNeeded(element) {
-    const password = sessionStorage.getItem(STORAGE_KEY.PASSWORD);
-    if (!password) {
-        Auth.clearAndReload();
-        return;
-    }
-
-    const isValid = await Auth.verify(password);
-    if (!isValid) {
-        Auth.clearAndReload();
-        return;
-    }
-
+function scrollIntoViewIfNeeded(element) {
     element.classList.add('scrolled-into-view');
     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
