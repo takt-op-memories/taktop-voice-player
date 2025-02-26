@@ -121,8 +121,8 @@
     },
     {
         "id": 1000,
-        "name": "会話",
-        "nameEn": "teabreak",
+        "name": "キーワード",
+        "nameEn": "keyword",
         "category": "teabreak"
     },
     {
