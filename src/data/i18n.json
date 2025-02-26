@@ -1,0 +1,70 @@
+{
+    "ja": {
+        "title": "takt op. Memories | Voice Player",
+        "warning": "表示されるコンテンツには未公開コンテンツやネタバレが含まれる場合があります",
+        "auth": {
+            "title": "認証が必要です",
+            "placeholder": "パスワードを入力してください",
+            "error": "パスワードが無効です",
+            "submit": "認証"
+        },
+        "status": {
+            "updating": "パスワード更新中...",
+            "until": "次回パスワード更新まで：",
+            "error": "更新時刻の取得に失敗しました"
+        },
+        "footer": {
+            "disclaimer": "このページはファンメイドのデータベースで非公式です。表示されているコンテンツの権利は所有しておらず、すべての権利は各権利者に帰属します。"
+        },
+        "selectors": {
+            "character": "キャラクターを選択",
+            "category": "カテゴリーを選択",
+            "toggleShow": "選択項目を表示",
+            "toggleHide": "選択項目を隠す"
+        },
+        "controls": {
+            "playAll": "一括再生",
+            "downloadAll": "一括ダウンロード",
+            "stop": "停止",
+            "downloading": "ダウンロード中...",
+            "downloadConfirm": "全てのボイスをダウンロードしますか？\nファイル数によっては時間がかかる場合があります。"
+        },
+        "messages": {
+            "requiredSelection": "ボイスを表示するには、キャラクターとカテゴリーの両方を選択してください。"
+        }
+    },
+    "en": {
+        "title": "takt op. Memories | Voice Player",
+        "warning": "Displayed content may include unpublished content and spoilers",
+        "auth": {
+            "title": "Authentication required",
+            "placeholder": "Enter password",
+            "error": "Invalid password",
+            "submit": "Login"
+        },
+        "status": {
+            "updating": "Now Updating Password...",
+            "until": "Until next password update:",
+            "error": "Failed to retrieve update time"
+        },
+        "footer": {
+            "disclaimer": "This page is a fan-made database and is unofficial. This page does not own the rights to the content displayed, and all rights are reserved by their respective owners."
+        },
+        "selectors": {
+            "character": "Select Character",
+            "category": "Select Category",
+            "toggleShow": "Show Selection Items",
+            "toggleHide": "Hide Selection Items"
+        },
+        "controls": {
+            "playAll": "Play All",
+            "downloadAll": "Download All",
+            "stop": "Stop",
+            "downloading": "Downloading...",
+            "downloadConfirm": "Do you want to download all voices?\nThis may take time depending on the number of files."
+        },
+        "messages": {
+            "requiredSelection": "Please select both character and category to view voices."
+        }
+    }
+}

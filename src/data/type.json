@@ -1,0 +1,170 @@
+[
+    {
+        "id": 0,
+        "name": "ボイス",
+        "nameEn": "musicart",
+        "category": "musicart"
+    },
+    {
+        "id": 1,
+        "name": "バトル",
+        "nameEn": "battle",
+        "category": "musicart"
+    },
+    {
+        "id": 2,
+        "name": "battleadd",
+        "nameEn": "battleadd",
+        "category": "musicart"
+    },
+    {
+        "id": 3,
+        "name": "battlecommand",
+        "nameEn": "battlecommand",
+        "category": "musicart"
+    },
+    {
+        "id": 4,
+        "name": "バトル結果",
+        "nameEn": "battleresult",
+        "category": "musicart"
+    },
+    {
+        "id": 5,
+        "name": "コミュニケート",
+        "nameEn": "communicate",
+        "category": "musicart"
+    },
+    {
+        "id": 6,
+        "name": "エモート",
+        "nameEn": "emote",
+        "category": "musicart"
+    },
+    {
+        "id": 7,
+        "name": "ガチャ",
+        "nameEn": "gacha",
+        "category": "musicart"
+    },
+    {
+        "id": 8,
+        "name": "hearing",
+        "nameEn": "hearing",
+        "category": "musicart"
+    },
+    {
+        "id": 9,
+        "name": "ホーム",
+        "nameEn": "home",
+        "category": "musicart"
+    },
+    {
+        "id": 10,
+        "name": "クエスト",
+        "nameEn": "hopequest",
+        "category": "musicart"
+    },
+    {
+        "id": 11,
+        "name": "鼻歌",
+        "nameEn": "humming",
+        "category": "musicart"
+    },
+    {
+        "id": 12,
+        "name": "limitbreak",
+        "nameEn": "limitbreak",
+        "category": "musicart"
+    },
+    {
+        "id": 13,
+        "name": "プロフィール",
+        "nameEn": "profile",
+        "category": "musicart"
+    },
+    {
+        "id": 14,
+        "name": "relationship",
+        "nameEn": "relationship",
+        "category": "musicart"
+    },
+    {
+        "id": 15,
+        "name": "ログイン",
+        "nameEn": "rogin",
+        "category": "musicart"
+    },
+    {
+        "id": 16,
+        "name": "rollskill",
+        "nameEn": "rollskill",
+        "category": "musicart"
+    },
+    {
+        "id": 17,
+        "name": "タイトル",
+        "nameEn": "title",
+        "category": "musicart"
+    },
+    {
+        "id": 18,
+        "name": "トレーニング",
+        "nameEn": "training",
+        "category": "musicart"
+    },
+    {
+        "id": 19,
+        "name": "チュートリアル",
+        "nameEn": "tutorial",
+        "category": "musicart"
+    },
+    {
+        "id": 1000,
+        "name": "会話",
+        "nameEn": "teabreak",
+        "category": "teabreak"
+    },
+    {
+        "id": 1001,
+        "name": "レベルアップ",
+        "nameEn": "talklvup",
+        "category": "teabreak"
+    },
+    {
+        "id": 1002,
+        "name": "終了",
+        "nameEn": "end",
+        "category": "teabreak"
+    },
+    {
+        "id": 1003,
+        "name": "挨拶",
+        "nameEn": "greet",
+        "category": "teabreak"
+    },
+    {
+        "id": 1004,
+        "name": "item",
+        "nameEn": "item",
+        "category": "teabreak"
+    },
+    {
+        "id": 1005,
+        "name": "special",
+        "nameEn": "special",
+        "category": "teabreak"
+    },
+    {
+        "id": 1006,
+        "name": "summary",
+        "nameEn": "summary",
+        "category": "teabreak"
+    },
+    {
+        "id": 1007,
+        "name": "時間の挨拶",
+        "nameEn": "timegreet",
+        "category": "teabreak"
+    }
+]
