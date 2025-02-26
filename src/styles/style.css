@@ -679,3 +679,40 @@ select:disabled {
     border: 1px solid var(--border-color);
     font-size: 1.1rem;
 }
+
+.type-container-wrapper {
+    margin-top: 0.5rem;
+}
+
+.type-toggle {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.type-toggle .material-icons {
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.type-toggle.expanded .material-icons {
+    transform: rotate(180deg);
+}
+
+#type-container {
+    display: none;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+#type-container.expanded {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}

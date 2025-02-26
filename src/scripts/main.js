@@ -149,6 +149,22 @@ const Lang = {
                 strings.selectors.toggleHide;
         }
 
+        const typeToggle = document.querySelector('.type-toggle');
+        if (typeToggle) {
+            const isExpanded = document.getElementById('type-container').classList.contains('expanded');
+            const textSpan = typeToggle.querySelector('span:not(.material-icons)');
+            if (textSpan) {
+                // 言語とexpandedの状態に基づいてテキストを決定
+                let buttonText;
+                if (Lang.current === 'en') {
+                    buttonText = isExpanded ? 'Hide Types' : 'Show Types';
+                } else {
+                    buttonText = isExpanded ? 'タイプを非表示' : 'タイプを表示';
+                }
+                textSpan.textContent = buttonText;
+            }
+        }
+
         const playAllBtn = document.querySelector('.play-all-btn');
         if (playAllBtn) {
             const textSpan = playAllBtn.querySelector('span:not(.material-icons)');
@@ -377,7 +393,7 @@ const VoicePlayer = {
         typeContainer.id = 'type-container';
         const typeLabel = document.createElement('div');
         typeLabel.className = 'selector-label';
-        typeLabel.textContent = Lang.current === 'en' ? 'Type' : 'タイプ';
+        typeLabel.textContent = Lang.current === 'en' ? 'Type (optional)' : 'タイプ(オプション)';
         document.querySelector('.element-selector:nth-child(3) div').append(typeLabel, typeContainer);
 
         const characters = await fetch('./src/data/character.json').then(r => r.json());
@@ -455,7 +471,7 @@ const VoicePlayer = {
         const labels = {
             character: Lang.current === 'en' ? 'Character' : 'キャラクター',
             category: Lang.current === 'en' ? 'Category' : 'カテゴリー',
-            type: Lang.current === 'en' ? 'Type' : 'タイプ'
+            type: Lang.current === 'en' ? 'Type (optional)' : 'タイプ(オプション)'
         };
 
         const characterLabel = document.querySelector('.element-selector:nth-child(1) .selector-label');
@@ -565,16 +581,64 @@ const VoicePlayer = {
 
         typeSelector.style.display = 'block';
 
+        // 既存のtype-container-wrapperを削除
+        const existingWrapper = typeSelector.querySelector('.type-container-wrapper');
+        if (existingWrapper) {
+            existingWrapper.remove();
+        }
+
+        // typeSelector内の要素をクリア
+        const typeSelectorDiv = typeSelector.querySelector('div');
+        typeSelectorDiv.innerHTML = '';
+
+        // 新しいコンテナの作成
+        const typeContainerWrapper = document.createElement('div');
+        typeContainerWrapper.className = 'type-container-wrapper';
+
+        const typeContainer = document.createElement('div');
+        typeContainer.id = 'type-container';
+        typeContainer.className = 'type-container';
+
+        const toggleButton = document.createElement('div');
+        toggleButton.className = 'type-toggle';
+        toggleButton.innerHTML = `
+        <span class="material-icons">expand_more</span>
+        <span>${Lang.current === 'en' ? 'Show Types' : 'タイプを表示'}</span>
+    `;
+
         const types = await fetch('./src/data/type.json').then(r => r.json());
         const filteredTypes = types.filter(t => t.category === this.selectedCategory);
 
-        const typeContainer = document.getElementById('type-container');
-        typeContainer.innerHTML = filteredTypes.map(type => `
-            <label class="type-checkbox">
+        filteredTypes.forEach(type => {
+            const label = document.createElement('label');
+            label.className = 'type-checkbox';
+            label.innerHTML = `
                 <input type="checkbox" value="${type.nameEn}">
-                ${type.name}
-            </label>
-        `).join('');
+                ${Lang.current === 'en' ? type.nameEn : type.name}
+            `;
+            typeContainer.appendChild(label);
+        });
+
+        // イベントリスナーの設定
+        toggleButton.addEventListener('click', () => {
+            typeContainer.classList.toggle('expanded');
+            toggleButton.classList.toggle('expanded');
+            const isExpanded = typeContainer.classList.contains('expanded');
+            // 言語とexpandedの状態に基づいてテキストを決定
+            let buttonText;
+            if (Lang.current === 'en') {
+                buttonText = isExpanded ? 'Hide Types' : 'Show Types';
+            } else {
+                buttonText = isExpanded ? 'タイプを非表示' : 'タイプを表示';
+            }
+
+            toggleButton.querySelector('span:not(.material-icons)').textContent = buttonText;
+        });
+
+        // DOMへの追加
+        typeContainerWrapper.appendChild(toggleButton);
+        typeContainerWrapper.appendChild(typeContainer);
+        typeSelectorDiv.appendChild(typeContainerWrapper);
 
         await this.updateTypeFilters();
         this.updateRequiredSelectionMessage();
