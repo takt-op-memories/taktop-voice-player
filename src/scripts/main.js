@@ -154,7 +154,6 @@ const Lang = {
             const isExpanded = document.getElementById('type-container').classList.contains('expanded');
             const textSpan = typeToggle.querySelector('span:not(.material-icons)');
             if (textSpan) {
-                // 言語とexpandedの状態に基づいてテキストを決定
                 let buttonText;
                 if (Lang.current === 'en') {
                     buttonText = isExpanded ? 'Hide Types' : 'Show Types';
@@ -486,20 +485,16 @@ const VoicePlayer = {
     updateURLParams() {
         const params = new URLSearchParams(window.location.search);
 
-        // パラメータをクリアしてから必要なものだけを追加
         params.delete('char');
         params.delete('category');
         params.delete('types');
 
-        // キャラクターが選択されている場合のみ追加
         if (this.characterId) {
             params.set('char', this.characterId);
 
-            // カテゴリーはキャラクターが選択されている場合のみ追加
             if (this.selectedCategory) {
                 params.set('category', this.selectedCategory);
 
-                // タイプはカテゴリーが選択されている場合のみ追加
                 if (this.selectedTypes.size > 0) {
                     params.set('types', [...this.selectedTypes].join(','));
                 }
