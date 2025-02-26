@@ -377,11 +377,11 @@ select:focus {
 
 .voice-item {
     background: var(--surface-color);
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 4px;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     transition: all 0.2s ease;
 }
 
