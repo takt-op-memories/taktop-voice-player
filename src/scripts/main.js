@@ -718,8 +718,73 @@ const VoicePlayer = {
             categorySelect.value = this.selectedCategory || "";
         }
 
+        const typeSelector = document.querySelector('.element-selector:nth-child(3)');
+        const typeSelectorDiv = typeSelector.querySelector('div');
+
+        const existingWrapper = typeSelectorDiv.querySelector('.type-container-wrapper');
+        if (existingWrapper) {
+            existingWrapper.remove();
+        }
+
+        const typeContainerWrapper = document.createElement('div');
+        typeContainerWrapper.className = 'type-container-wrapper';
+
+        const typeContainer = document.createElement('div');
+        typeContainer.id = 'type-container';
+        typeContainer.className = 'type-container';
+
+        const toggleButton = document.createElement('div');
+        toggleButton.className = 'type-toggle';
+        toggleButton.innerHTML = `
+        <span class="material-icons">expand_more</span>
+        <span>${Lang.current === 'en' ? 'Show Types' : 'タイプを表示'}</span>
+    `;
+
+        const types = await fetch('./src/data/type.json').then(r => r.json());
+        const filteredTypes = types.filter(t => t.category === this.selectedCategory);
+
+        filteredTypes.forEach(type => {
+            const label = document.createElement('label');
+            label.className = 'type-checkbox';
+            label.innerHTML = `
+                <input type="checkbox" value="${type.nameEn}">
+                ${Lang.current === 'en' ? type.nameEn : type.name}
+            `;
+            typeContainer.appendChild(label);
+        });
+
+        toggleButton.addEventListener('click', () => {
+            typeContainer.classList.toggle('expanded');
+            toggleButton.classList.toggle('expanded');
+            const isExpanded = typeContainer.classList.contains('expanded');
+            let buttonText;
+            if (Lang.current === 'en') {
+                buttonText = isExpanded ? 'Hide Types' : 'Show Types';
+            } else {
+                buttonText = isExpanded ? 'タイプを非表示' : 'タイプを表示';
+            }
+
+            toggleButton.querySelector('span:not(.material-icons)').textContent = buttonText;
+        });
+
+        typeContainerWrapper.appendChild(toggleButton);
+        typeContainerWrapper.appendChild(typeContainer);
+        typeSelectorDiv.appendChild(typeContainerWrapper);
 
         await this.updateTypeFilters();
+        this.updateRequiredSelectionMessage();
+
+        typeContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            cb.addEventListener('change', () => {
+                if (cb.checked) {
+                    this.selectedTypes.add(cb.value);
+                } else {
+                    this.selectedTypes.delete(cb.value);
+                }
+                this.updateURLParams();
+                this.updateVoiceFilters();
+            });
+        });
 
     },
 
