@@ -416,6 +416,7 @@ select:focus {
     cursor: pointer;
     border: none;
     transition: all 0.2s ease;
+    margin: auto !important;
 }
 
 .play-btn {
