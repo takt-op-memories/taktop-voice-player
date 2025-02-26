@@ -529,10 +529,13 @@ const VoicePlayer = {
         categorySelect.classList.add('enabled');
 
         const categories = await fetch('./src/data/category.json').then(r => r.json());
+        const selectText = Lang.data[Lang.current].selectors.category;
         categorySelect.innerHTML = `
-            <option value="">カテゴリーを選択</option>
+            <option value="">${selectText}</option>
             ${categories.map(cat => `
-                <option value="${cat.nameEn}">${cat.name}</option>
+                <option value="${cat.nameEn}">
+                    ${Lang.current === 'en' ? cat.nameEn : cat.name}
+                </option>
             `).join('')}
         `;
 
