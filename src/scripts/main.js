@@ -469,23 +469,29 @@ const VoicePlayer = {
 
     updateURLParams() {
         const params = new URLSearchParams(window.location.search);
+
+        // パラメータをクリアしてから必要なものだけを追加
+        params.delete('char');
+        params.delete('category');
+        params.delete('types');
+
+        // キャラクターが選択されている場合のみ追加
         if (this.characterId) {
             params.set('char', this.characterId);
-        } else {
-            params.delete('char');
-        }
-        if (this.selectedCategory) {
-            params.set('category', this.selectedCategory);
-        } else {
-            params.delete('category');
-        }
-        if (this.selectedTypes.size > 0) {
-            params.set('types', [...this.selectedTypes].join(','));
-        } else {
-            params.delete('types');
+
+            // カテゴリーはキャラクターが選択されている場合のみ追加
+            if (this.selectedCategory) {
+                params.set('category', this.selectedCategory);
+
+                // タイプはカテゴリーが選択されている場合のみ追加
+                if (this.selectedTypes.size > 0) {
+                    params.set('types', [...this.selectedTypes].join(','));
+                }
+            }
         }
 
-        history.replaceState({}, '', `${window.location.pathname}?${params}`);
+        const queryString = params.toString();
+        history.replaceState({}, '', `${window.location.pathname}${queryString ? '?' + queryString : ''}`);
     },
 
     updateToggleButtonText() {
@@ -534,13 +540,14 @@ const VoicePlayer = {
 
         this.selectedCategory = null;
         this.updateRequiredSelectionMessage();
-        this.updateURLParams();
         this.selectedTypes.clear();
         this.clearTypes();
+        this.updateURLParams();
     },
 
     async onCategoryChange(event) {
         this.selectedCategory = event.target.value;
+        this.selectedTypes.clear();
         this.updateURLParams();
 
         await this.updateVoiceList();
