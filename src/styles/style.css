@@ -425,7 +425,11 @@ select:focus {
 
 .play-btn:hover {
     background: #7a36ff;
-    transform: scale(1.05);
+    transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -o-transform: scale(1.03);
 }
 
 .download-btn {
@@ -437,7 +441,11 @@ select:focus {
 .download-btn:hover {
     background: var(--secondary-color);
     opacity: 0.8;
-    transform: scale(1.05);
+    transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -o-transform: scale(1.03);
 }
 
 .material-icons {
@@ -575,6 +583,23 @@ select:disabled {
     .voice-title {
         font-size: 0.9rem;
     }
+
+    .play-btn:hover {
+        transform: none;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+    }
+
+    .download-btn:hover {
+        transform: none;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+    }
+
 }
 
 .selector-label {
