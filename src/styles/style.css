@@ -460,6 +460,9 @@ select:focus {
 .bulk-controls {
     display: flex;
     gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .bulk-controls button {
@@ -468,12 +471,22 @@ select:focus {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    min-height: 44px;
+    max-width: 200px;
 }
 
 .bulk-controls button span {
     display: inline-flex;
     align-items: center;
     vertical-align: middle;
+    white-space: nowrap;
 }
 
 .bulk-controls button svg {
@@ -563,13 +576,19 @@ select:disabled {
 @media (max-width: 768px) {
     .bulk-controls {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap: 0.5rem;
+        padding: 0 0.5rem;
     }
 
     .bulk-controls button {
-        width: 100%;
-        min-width: 0;
+        font-size: 0.8rem;
+        padding: 0.5rem;
+        min-height: 40px;
+    }
+
+    .bulk-controls .material-icons {
+        font-size: 1.1em;
     }
 
     .voice-items {
