@@ -132,6 +132,18 @@
         "category": "musicart"
     },
     {
+        "id": 22,
+        "name": "ショップ",
+        "nameEn": "shop",
+        "category": "musicart"
+    },
+    {
+        "id": 23,
+        "name": "warehouse",
+        "nameEn": "warehouse",
+        "category": "musicart"
+    },
+    {
         "id": 1000,
         "name": "キーワード",
         "nameEn": "keyword",
