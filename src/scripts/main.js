@@ -581,15 +581,13 @@ const VoicePlayer = {
 
         typeSelector.style.display = 'block';
 
+        const typeSelectorDiv = typeSelector.querySelector('div');
+
         // 既存のtype-container-wrapperを削除
-        const existingWrapper = typeSelector.querySelector('.type-container-wrapper');
+        const existingWrapper = typeSelectorDiv.querySelector('.type-container-wrapper');
         if (existingWrapper) {
             existingWrapper.remove();
         }
-
-        // typeSelector内の要素をクリア
-        const typeSelectorDiv = typeSelector.querySelector('div');
-        typeSelectorDiv.innerHTML = '';
 
         // 新しいコンテナの作成
         const typeContainerWrapper = document.createElement('div');
