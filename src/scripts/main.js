@@ -458,9 +458,13 @@ const VoicePlayer = {
             type: Lang.current === 'en' ? 'Type' : 'タイプ'
         };
 
-        document.querySelector('.element-selector:nth-child(1) .selector-label').textContent = labels.character;
-        document.querySelector('.element-selector:nth-child(2) .selector-label').textContent = labels.category;
-        document.querySelector('.element-selector:nth-child(3) .selector-label').textContent = labels.type;
+        const characterLabel = document.querySelector('.element-selector:nth-child(1) .selector-label');
+        const categoryLabel = document.querySelector('.element-selector:nth-child(2) .selector-label');
+        const typeLabel = document.querySelector('.element-selector:nth-child(3) .selector-label');
+
+        if (characterLabel) characterLabel.textContent = labels.character;
+        if (categoryLabel) categoryLabel.textContent = labels.category;
+        if (typeLabel) typeLabel.textContent = labels.type;
     },
 
     updateURLParams() {
