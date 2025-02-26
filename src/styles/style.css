@@ -356,7 +356,8 @@ select:focus {
 }
 
 .type-checkbox {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     margin: 0.5rem;
     padding: 0.5rem;
     background: rgba(255, 255, 255, 0.1);
@@ -451,6 +452,10 @@ select:focus {
 
 .material-icons {
     font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
 .play-btn.playing {
@@ -473,7 +478,7 @@ select:focus {
     cursor: pointer;
     transition: background-color 0.2s ease;
     flex: 1;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
@@ -764,4 +769,9 @@ select:disabled {
 #display-selectors:active {
     background: rgba(255, 255, 255, 0.15);
     transform: translateY(1px);
+}
+
+.type-checkbox input[type="checkbox"] {
+    margin: 0;
+    margin-right: 0.5rem;
 }
