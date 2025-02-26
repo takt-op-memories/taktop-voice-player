@@ -612,7 +612,6 @@ const VoicePlayer = {
     },
 
     updateVoiceFilters() {
-        console.log('Filtering voices...');
         const checkedTypes = new Set(
             Array.from(document.querySelectorAll('#type-container input:checked'))
                 .map(cb => cb.value)
