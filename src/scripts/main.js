@@ -576,7 +576,8 @@ const VoicePlayer = {
                 } else {
                     this.selectedTypes.delete(cb.value);
                 }
-                this.updateVoiceList();
+                this.updateURLParams();
+                this.updateVoiceFilters();
             });
         });
     },
@@ -605,8 +606,8 @@ const VoicePlayer = {
                 } else {
                     this.selectedTypes.delete(cb.value);
                 }
-                this.updateVoiceFilters();
                 this.updateURLParams();
+                this.updateVoiceFilters();
             });
         });
     },
