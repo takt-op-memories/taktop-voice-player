@@ -126,6 +126,12 @@
         "category": "musicart"
     },
     {
+        "id": 21,
+        "name": "ログイン",
+        "nameEn": "login",
+        "category": "musicart"
+    },
+    {
         "id": 1000,
         "name": "キーワード",
         "nameEn": "keyword",
