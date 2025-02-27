@@ -144,6 +144,12 @@
         "category": "musicart"
     },
     {
+        "id": 24,
+        "name": "relatopnship",
+        "nameEn": "relatopnship",
+        "category": "musicart"
+    },
+    {
         "id": 1000,
         "name": "キーワード",
         "nameEn": "keyword",
