@@ -150,6 +150,12 @@
         "category": "musicart"
     },
     {
+        "id": 24,
+        "name": "ex",
+        "nameEn": "ex",
+        "category": "musicart"
+    },
+    {
         "id": 1000,
         "name": "キーワード",
         "nameEn": "keyword",
